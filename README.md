@@ -1,6 +1,6 @@
 # yandex-wordstat-free
 
-Скилл для [Claude Code](https://claude.com/claude-code): собирает ключевые фразы,
+⭕🔎 Скилл для [Claude Code](https://claude.com/claude-code): собирает ключевые фразы,
 частотности и похожие запросы из [Яндекс Wordstat](https://wordstat.yandex.ru)
 для русскоязычного SEO.
 
