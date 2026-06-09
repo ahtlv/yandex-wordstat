@@ -1,8 +1,12 @@
-# yandex-wordstat
+# yandex-wordstat-free
 
 Скилл для [Claude Code](https://claude.com/claude-code): собирает ключевые фразы,
 частотности и похожие запросы из [Яндекс Wordstat](https://wordstat.yandex.ru)
-для русскоязычного SEO. Работает через [`agent-browser`](https://github.com/vercel-labs/agent-browser).
+для русскоязычного SEO.
+
+**Бесплатно — через браузер**, а не через платный Yandex Cloud Search API
+(~₽15-25/1000 запросов). Движок — [`agent-browser`](https://github.com/vercel-labs/agent-browser):
+логинимся в Яндекс один раз и собираем данные напрямую из интерфейса Wordstat.
 
 ## Что делает
 
@@ -31,7 +35,7 @@
 Как субмодуль в каталог скиллов Claude Code, например:
 
 ```bash
-git submodule add https://github.com/ahtlv/yandex-wordstat \
+git submodule add https://github.com/ahtlv/yandex-wordstat-free \
   ~/.claude/skills/yandex-wordstat
 ```
 

@@ -1,6 +1,6 @@
 ---
 name: yandex-wordstat
-version: 0.2.0
+version: 0.3.0
 description: >
   Сбор и анализ поискового спроса из Яндекс Wordstat (wordstat.yandex.ru) через
   agent-browser для русскоязычного SEO. Использовать когда пользователь говорит:
@@ -50,10 +50,27 @@ description: >
 
 Без понимания бизнес-цели нельзя разделить целевые/нецелевые запросы — не пропускать этот шаг.
 
-## Бинарь
+## Парсер: agent-browser (обязательно)
 
-`agent-browser` в `PATH` (проверка: `agent-browser --help`; нет — `npm i -g agent-browser`).
-`node` нужен для URL-кодирования кириллицы.
+Скилл собирает Wordstat **бесплатно через браузер** — не через платный Yandex Cloud
+Search API (тот ~₽15-25/1000 запросов). В этом вся фишка `-free`.
+
+Движок — **[`agent-browser`](https://github.com/vercel-labs/agent-browser)** (Vercel Labs),
+CLI поверх Playwright/Chromium. Пакет npm: `agent-browser`.
+
+**Почему именно он (а не Playwright MCP / голый Selenium):**
+- Токен-эффективность: ref-дерево доступности (~200-400 токенов на snapshot), а не
+  сырой HTML на тысячи — критично для длинных сессий сбора.
+- Сохранение auth-сессии (`--session`, `state save`) — логин в Яндекс один раз.
+- Headless и на macOS, и на Linux-сервере (Mac Pro / Ubuntu).
+- Управление по `@ref` из snapshot — стабильнее CSS-селекторов на меняющейся вёрстке.
+
+**Проверка и автоустановка — В САМОМ НАЧАЛЕ работы:**
+```bash
+agent-browser --help >/dev/null 2>&1 || npm i -g agent-browser
+node --version >/dev/null 2>&1 || echo "нужен node (идёт с npm) — для encodeURIComponent кириллицы"
+```
+Нет установки — поставить и продолжить; `node` нужен для URL-кодирования кириллицы.
 
 ## Таблица регионов (geo-id)
 

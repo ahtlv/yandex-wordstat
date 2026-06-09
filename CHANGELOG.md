@@ -9,6 +9,16 @@ SKILL.md), проставить git-тег `vX.Y.Z`. Журнал примене
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-06-10
+### Changed
+- Репозиторий переименован `yandex-wordstat` → **`yandex-wordstat-free`**: подчёркивает
+  фишку — бесплатный сбор через браузер, без платного Yandex Cloud Search API.
+  (Команда скилла остаётся `/yandex-wordstat`; GitHub держит редирект со старого имени.)
+### Added
+- Секция «Парсер: agent-browser (обязательно)» — что за движок, почему именно он,
+  ссылка и однострочная автоустановка (`agent-browser --help || npm i -g agent-browser`)
+  для запуска в начале работы.
+
 ## [0.2.0] — 2026-06-10
 ### Added
 - Методология анализа спроса (адаптирована из скилла `artwist-polyakov/polyakov-claude-skills`):
@@ -34,6 +44,7 @@ SKILL.md), проставить git-тег `vX.Y.Z`. Журнал примене
 - Ручной логин в Яндекс, сессия `--session yandex` (стейт вне репо).
 - Вывод: CSV (базовая/точная/похожая) + сводка в чат. Дизайн, план, smoke-тест.
 
-[Unreleased]: https://github.com/ahtlv/yandex-wordstat/compare/v0.2.0...HEAD
-[0.2.0]: https://github.com/ahtlv/yandex-wordstat/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/ahtlv/yandex-wordstat/releases/tag/v0.1.0
+[Unreleased]: https://github.com/ahtlv/yandex-wordstat-free/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/ahtlv/yandex-wordstat-free/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/ahtlv/yandex-wordstat-free/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/ahtlv/yandex-wordstat-free/releases/tag/v0.1.0
